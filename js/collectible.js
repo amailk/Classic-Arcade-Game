@@ -1,14 +1,14 @@
-var Collectible = function(sprite, points, row, col, appearLimit, timeLimit) {
+var Collectible = function(sprite, points, appearLimit, timeLimit) {
     this.sprite = sprite;
     this.points = points;
-    this.row = row;
-    this.col = col;
     this.timeLimit = timeLimit;
     this.appearLimit = appearLimit;
 
     this.timeShown = 0;
     this.visible = false;
     this.countShown = 0;
+    this.row = 0;
+    this.col = 0;
 };
 
 Collectible.prototype.render = function() {
@@ -27,8 +27,7 @@ Collectible.prototype.update = function(dt) {
     }
 
     if(!this.visible && this.countShown < this.appearLimit) {
-        this.row = randomIntInRange(1,3);
-        this.col = randomIntInRange(0,4);
+        this.randomizePosition();
 
         this.visible = true;
         this.timeShown = 0;
@@ -40,9 +39,18 @@ Collectible.prototype.update = function(dt) {
         if(this.timeShown > this.timeLimit) {
             this.visible = false;
 
-            this.row = randomIntInRange(1,3);
-            this.col = randomIntInRange(0,4);
+            this.randomizePosition();
         }
+    }
+};
+
+Collectible.prototype.randomizePosition = function () {
+    this.row = randomIntInRange(1,3);
+    this.col = randomIntInRange(0,4);
+
+    while(collectibleCollision()){
+        this.row = randomIntInRange(1,3);
+        this.col = randomIntInRange(0,4);
     }
 };
 
@@ -54,4 +62,15 @@ Collectible.prototype.reset = function() {
 
 var randomIntInRange = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+var collectibleCollision = function() {
+    var c1 = allCollectibles[0];
+    var c2 = allCollectibles[1];
+
+    if (c1.col == c2.col && c1.row == c2.row) {
+        return true;
+    }
+
+    return false;
 };

@@ -54,6 +54,20 @@ Player.prototype.render = function() {
         centerX = 505/2 - 313/2;
         centerY = 606/2 - 232/2;
         ctx.drawImage(Resources.get("images/won.png"), centerX, centerY);
+        drawText("Press SPACE to Play Again", 505/2, 606*0.9);
+        drawText("Score: " + this.points, 505/2, 606*0.75);
 
     }
+};
+
+var drawText = function(text,x,y) {
+    ctx.font = "24pt Impact";
+    ctx.textAlign = "center";
+    ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 3;
+
+    ctx.fillText(text, x, y);
+    ctx.strokeText(text, x, y);
+
 };

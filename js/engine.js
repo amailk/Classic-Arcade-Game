@@ -198,11 +198,15 @@ var Engine = (function(global) {
         'images/stone-block.png',
         'images/water-block.png',
         'images/grass-block.png',
-        'images/enemy-bug.png',
+        'images/enemy-bug-1.png',
+        'images/enemy-bug-2.png',
+        'images/enemy-bug-3.png',
         'images/char-boy.png',
         'images/char-princess-girl.png',
         'images/won.png',
-        'images/Star.png'
+        'images/star-1.png',
+        'images/star-2.png',
+        'images/Gem Orange.png'
     ]);
     Resources.onReady(init);
 
