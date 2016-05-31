@@ -21,7 +21,6 @@ Collectible.prototype.update = function(dt) {
     // Check for collision between player and collectible
     if(this.visible && this.row == player.row && this.col == player.col) {
         player.points += this.points;
-        console.log(player.points);
 
         this.visible = false;
     }
