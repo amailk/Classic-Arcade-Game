@@ -1,4 +1,4 @@
-//Enemies
+// Enemies
 var bug1 = new Enemy(1, 100,"images/enemy-bug-1.png");
 var bug2 = new Enemy(2, 150, "images/enemy-bug-2.png");
 var bug3 = new Enemy(3, 120, "images/enemy-bug-3.png");
