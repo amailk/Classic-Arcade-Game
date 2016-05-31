@@ -146,9 +146,6 @@ var Engine = (function(global) {
             }
         }
 
-        // TODO: Render the points earned by the player (player.points) on the top-right of the screen
-
-
         renderEntities();
     }
 

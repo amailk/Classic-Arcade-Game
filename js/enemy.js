@@ -16,17 +16,19 @@ Enemy.prototype.update = function(dt) {
         this.x += this.speed * dt;
     }
 
-    if(this.x > 550) {
-        this.x = -100;
+    if(this.x > canvasWidth + colWidth) {
+        this.x = enemyStart;
     }
 
-    //Check for collision between enemy and player
-    if ((this.row == player.row) &&(Math.floor(this.x/83) == player.col)) {
+    var enemyRow = Math.floor(this.x / rowHeight);
+
+    // Check for collision between enemy and player
+    if (this.row == player.row && enemyRow == player.col) {
         player.reset();
     }
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, (this.row*83)-20)
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.row * rowHeight - rowHeight / 4);
 };
