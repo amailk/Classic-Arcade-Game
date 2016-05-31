@@ -4,8 +4,8 @@
  */
 var Player = function() {
     this.sprite = "images/char-princess-girl.png";
-    this.row = playerStartRow;
-    this.col = playerStartCol;
+    this.row = app.PLAYER_START_ROW;
+    this.col = app.PLAYER_START_COL;
 
     this.win = false;
     this.points = 0;
@@ -27,13 +27,13 @@ Player.prototype.handleInput = function(key) {
     } else {
         if (key === "left" && this.col > 0) {
             this.col -= 1;
-        } else if (key === "right" && this.col < numCols - 1) {
+        } else if (key === "right" && this.col < app.NUM_COLS - 1) {
             this.col += 1;
         }
 
         if (key == "up" && this.row > 0) {
             this.row -= 1;
-        } else if (key == "down" && this.row < numRows - 1) {
+        } else if (key == "down" && this.row < app.NUM_ROWS - 1) {
             this.row += 1;
         }
     }
@@ -53,8 +53,8 @@ Player.prototype.update = function() {
  * @description Resets the player position and points.
  */
 Player.prototype.reset = function() {
-    this.row = playerStartRow;
-    this.col = playerStartCol;
+    this.row = app.PLAYER_START_ROW;
+    this.col = app.PLAYER_START_COL;
 
     this.win = false;
     this.points = 0;
@@ -68,19 +68,19 @@ Player.prototype.reset = function() {
  * @description Render player and related entities.
  */
 Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.col * colWidth, this.row * rowHeight - rowHeight / 4);
+    ctx.drawImage(Resources.get(this.sprite), this.col * app.COL_WIDTH, this.row * app.ROW_HEIGHT - app.ROW_HEIGHT / 4);
 
     if (this.win) {
         var imageWidth = 313;
         var imageHeight = 232;
 
-        centerX = canvasWidth / 2 - imageWidth / 2;
-        centerY = canvasHeight / 2 - imageHeight / 2;
+        centerX = app.CANVAS_WIDTH / 2 - imageWidth / 2;
+        centerY = app.CANVAS_HEIGHT / 2 - imageHeight / 2;
 
         ctx.drawImage(Resources.get("images/won.png"), centerX, centerY);
 
-        this.drawText("Press SPACE to Play Again", canvasWidth / 2, canvasHeight * 0.9);
-        this.drawText("Score: " + this.points, canvasWidth / 2, canvasHeight * 0.75);
+        this.drawText("Press SPACE to Play Again", app.CANVAS_WIDTH / 2, app.CANVAS_HEIGHT * 0.9);
+        this.drawText("Score: " + this.points, app.CANVAS_WIDTH / 2, app.CANVAS_HEIGHT * 0.75);
 
     }
 };

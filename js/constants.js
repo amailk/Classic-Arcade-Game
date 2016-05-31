@@ -1,15 +1,15 @@
 var app = app || {};
 
-app.canvasWidth = 505;
-app.canvasHeight = 606;
+app.CANVAS_WIDTH = 505;
+app.CANVAS_HEIGHT = 606;
 
-app.numRows = 6;
-app.numCols = 5;
+app.NUM_ROWS = 6;
+app.NUM_COLS = 5;
 
-app.colWidth = 100;
-app.rowHeight = 80;
+app.COL_WIDTH = 100;
+app.ROW_HEIGHT = 80;
 
-app.enemyStart = -100;
+app.ENEMY_START = -100;
 
-app.playerStartRow = 5;
-app.playerStartCol = 2;
+app.PLAYER_START_ROW = 5;
+app.PLAYER_START_COL = 2;

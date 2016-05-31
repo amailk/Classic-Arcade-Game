@@ -25,11 +25,11 @@ Enemy.prototype.update = function(dt) {
         this.x += this.speed * dt;
     }
 
-    if(this.x > canvasWidth + colWidth) {
-        this.x = enemyStart;
+    if(this.x > app.CANVAS_WIDTH + app.COL_WIDTH) {
+        this.x = app.ENEMY_START;
     }
 
-    var enemyRow = Math.floor(this.x / rowHeight);
+    var enemyRow = Math.floor(this.x / app.ROW_HEIGHT);
 
     // Check for collision between enemy and player
     if (this.row == player.row && enemyRow == player.col) {
@@ -41,5 +41,5 @@ Enemy.prototype.update = function(dt) {
  * @description Draw the enemy on the screen, required method for game
  */
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.row * rowHeight - rowHeight / 4);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.row * app.ROW_HEIGHT - app.ROW_HEIGHT / 4);
 };

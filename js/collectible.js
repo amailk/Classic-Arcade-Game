@@ -24,7 +24,7 @@ var Collectible = function(sprite, points, appearLimit, timeLimit) {
  */
 Collectible.prototype.render = function() {
     if (this.visible) {
-        ctx.drawImage(Resources.get(this.sprite), this.col * colWidth, (this.row * rowHeight) - rowHeight / 2);
+        ctx.drawImage(Resources.get(this.sprite), this.col * app.COL_WIDTH, (this.row * app.ROW_HEIGHT) - app.ROW_HEIGHT / 2);
     }
 };
 
