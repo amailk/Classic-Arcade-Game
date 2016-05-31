@@ -1,3 +1,7 @@
+/**
+ * @description Represents the player
+ * @constructor
+ */
 var Player = function() {
     this.sprite = "images/char-princess-girl.png";
     this.row = playerStartRow;
@@ -7,14 +11,19 @@ var Player = function() {
     this.points = 0;
 };
 
-// Depending on the key pressed game actions take place
-// space = resets game at when the player wins
-// left, right, up, down = moves player.
+/**
+ * @description Depending on the key pressed game actions take place
+ * space = resets game at when the player wins
+ * left, right, up, down = moves player.
+ *
+ * @param {string} key
+ */
 Player.prototype.handleInput = function(key) {
     if (this.win ) {
         if(key == "space") {
             player.reset();
         }
+
     } else {
         if (key === "left" && this.col > 0) {
             this.col -= 1;
@@ -31,14 +40,18 @@ Player.prototype.handleInput = function(key) {
 
 };
 
-// When player moves to the top row game is marked as won.
+/**
+ * @description When player moves to the top row game is marked as won.
+ */
 Player.prototype.update = function() {
     if(this.row == 0) {
         this.win = true;
     }
 };
 
-// Resets the player position and points
+/**
+ * @description Resets the player position and points.
+ */
 Player.prototype.reset = function() {
     this.row = playerStartRow;
     this.col = playerStartCol;
@@ -46,17 +59,18 @@ Player.prototype.reset = function() {
     this.win = false;
     this.points = 0;
 
-    allCollectibles.forEach(function(collectible){
+    allCollectibles.forEach(function (collectible) {
         collectible.reset();
     });
 };
 
-// Render player and related entities
+/**
+ * @description Render player and related entities.
+ */
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.col * colWidth, this.row * rowHeight - rowHeight / 4);
 
     if (this.win) {
-        // canvas center - image center
         var imageWidth = 313;
         var imageHeight = 232;
 
@@ -67,11 +81,16 @@ Player.prototype.render = function() {
 
         drawText("Press SPACE to Play Again", canvasWidth / 2, canvasHeight * 0.9);
         drawText("Score: " + this.points, canvasWidth / 2, canvasHeight * 0.75);
-
     }
 };
 
-// Draws text at given x and y coords.
+/**
+ * @description Draws text at given x and y coordinates.
+ *
+ * @param {string} text
+ * @param {number} x
+ * @param {number} y
+ */
 var drawText = function(text, x, y) {
     ctx.font = "24pt Impact";
     ctx.textAlign = "center";
@@ -81,5 +100,4 @@ var drawText = function(text, x, y) {
 
     ctx.fillText(text, x, y);
     ctx.strokeText(text, x, y);
-
 };
