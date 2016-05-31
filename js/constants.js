@@ -1,3 +1,8 @@
+var app = app || {};
+
+app.canvasWidth = 505;
+app.canvasHeight = 606;
+
 var canvasWidth = 505;
 var canvasHeight = 606;
 

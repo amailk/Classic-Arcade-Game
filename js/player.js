@@ -21,7 +21,7 @@ var Player = function() {
 Player.prototype.handleInput = function(key) {
     if (this.win ) {
         if(key == "space") {
-            player.reset();
+            this.reset();
         }
 
     } else {
@@ -44,7 +44,7 @@ Player.prototype.handleInput = function(key) {
  * @description When player moves to the top row game is marked as won.
  */
 Player.prototype.update = function() {
-    if(this.row == 0) {
+    if(this.row === 0) {
         this.win = true;
     }
 };
@@ -79,8 +79,6 @@ Player.prototype.render = function() {
 
         ctx.drawImage(Resources.get("images/won.png"), centerX, centerY);
 
-        drawText("Press SPACE to Play Again", canvasWidth / 2, canvasHeight * 0.9);
-        drawText("Score: " + this.points, canvasWidth / 2, canvasHeight * 0.75);
     }
 };
 
@@ -91,7 +89,11 @@ Player.prototype.render = function() {
  * @param {number} x
  * @param {number} y
  */
-var drawText = function(text, x, y) {
+Player.prototype.drawText = function(text,x,y) {
+
+    ctx.drawText("Press SPACE to Play Again", canvasWidth / 2, canvasHeight * 0.9);
+    ctx.drawText("Score: " + this.points, canvasWidth / 2, canvasHeight * 0.75);
+
     ctx.font = "24pt Impact";
     ctx.textAlign = "center";
     ctx.fillStyle = "white";
@@ -101,3 +103,5 @@ var drawText = function(text, x, y) {
     ctx.fillText(text, x, y);
     ctx.strokeText(text, x, y);
 };
+
+
