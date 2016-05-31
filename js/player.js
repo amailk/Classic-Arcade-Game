@@ -79,6 +79,9 @@ Player.prototype.render = function() {
 
         ctx.drawImage(Resources.get("images/won.png"), centerX, centerY);
 
+        this.drawText("Press SPACE to Play Again", canvasWidth / 2, canvasHeight * 0.9);
+        this.drawText("Score: " + this.points, canvasWidth / 2, canvasHeight * 0.75);
+
     }
 };
 
@@ -90,9 +93,6 @@ Player.prototype.render = function() {
  * @param {number} y
  */
 Player.prototype.drawText = function(text,x,y) {
-
-    ctx.drawText("Press SPACE to Play Again", canvasWidth / 2, canvasHeight * 0.9);
-    ctx.drawText("Score: " + this.points, canvasWidth / 2, canvasHeight * 0.75);
 
     ctx.font = "24pt Impact";
     ctx.textAlign = "center";

@@ -47,7 +47,6 @@ var Engine = (function(global) {
          */
         update(dt);
         render();
-        drawText();
 
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -186,10 +185,6 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
-    }
-
-    function drawText() {
-
     }
 
     /* Go ahead and load all of the images we know we're going to need to

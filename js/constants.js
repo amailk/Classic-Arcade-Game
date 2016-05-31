@@ -3,16 +3,13 @@ var app = app || {};
 app.canvasWidth = 505;
 app.canvasHeight = 606;
 
-var canvasWidth = 505;
-var canvasHeight = 606;
+app.numRows = 6;
+app.numCols = 5;
 
-var numRows = 6;
-var numCols = 5;
+app.colWidth = 100;
+app.rowHeight = 80;
 
-var colWidth = 100;
-var rowHeight = 80;
+app.enemyStart = -100;
 
-var enemyStart = -100;
-
-var playerStartRow = 5;
-var playerStartCol = 2;
+app.playerStartRow = 5;
+app.playerStartCol = 2;
